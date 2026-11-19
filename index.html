@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qualitätscheck Schulsozialarbeit Niedersachsen</title>
+<meta name="description" content="Checkliste zu den Rahmenbedingungen der sozialen Arbeit in schulischer Verantwortung in Niedersachsen. 60 Kriterien zum Ankreuzen mit Auswertung und Maßnahmenplan.">
+<meta name="robots" content="noindex">
+<style>
+:root{
+  --blue:#1f4e79; --blue-l:#dbe5f1; --ink:#1d2430; --muted:#5b6575; --line:#d5dbe3; --bg:#f4f6f9; --card:#fff;
+  --s1:#2e7d32; --s1b:#e8f5e9; --s2:#1565c0; --s2b:#e3f2fd; --s3:#8e24aa; --s3b:#f3e5f5;
+  --ok:#2e7d32; --mid:#f9a825; --bad:#c62828;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
+.wrap{max-width:1000px;margin:0 auto;padding:16px}
+header.hero{background:var(--blue);color:#fff;border-radius:14px;padding:22px 22px 18px;margin-bottom:16px}
+.hero h1{margin:0 0 4px;font-size:1.7rem}
+.hero p{margin:0;opacity:.92}
+.hero .tag{display:inline-block;margin-top:10px;font-size:.8rem;background:rgba(255,255,255,.15);padding:3px 10px;border-radius:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:16px}
+h2{color:var(--blue);font-size:1.15rem;margin:0 0 10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+label.f{display:block;font-size:.8rem;font-weight:600;color:var(--muted)}
+input[type=text],input[type=date],textarea{width:100%;font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:#fff}
+textarea{resize:vertical;min-height:38px}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.badge{display:inline-block;font-size:.75rem;font-weight:700;padding:2px 9px;border-radius:20px;white-space:nowrap}
+.b1{color:var(--s1);background:var(--s1b)} .b2{color:var(--s2);background:var(--s2b)} .b3{color:var(--s3);background:var(--s3b)}
+details.legal summary{cursor:pointer;font-weight:700;color:var(--blue)}
+details.legal ul{margin:8px 0 0;padding-left:20px;font-size:.92rem}
+.note{font-size:.85rem;color:#804000;background:#fff6e5;border-radius:8px;padding:8px 10px;margin-top:10px}
+
+/* Fortschritt (sticky) */
+.sticky{position:sticky;top:0;z-index:10;background:var(--bg);padding:8px 0}
+.progress{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;font-size:.9rem}
+.bar{flex:1;min-width:140px;height:10px;background:#e7ebf0;border-radius:6px;overflow:hidden}
+.bar span{display:block;height:100%;background:var(--blue);width:0;transition:width .3s}
+
+/* Bereiche */
+.sec h2{display:flex;align-items:center;gap:10px}
+.sec h2 .letter{background:var(--blue);color:#fff;border-radius:8px;width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center;font-size:.95rem;flex:none}
+.sec h2 .cnt{margin-left:auto;font-size:.8rem;color:var(--muted);font-weight:600}
+.item{display:grid;grid-template-columns:44px 1fr 92px 210px;gap:10px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.item:first-of-type{border-top:none}
+.nr{font-weight:700;color:var(--muted);text-align:center}
+.txt b{color:var(--ink)}
+.txt .hint{color:var(--muted)}
+.rate{display:flex;gap:4px}
+.rate input{position:absolute;opacity:0;pointer-events:none}
+.rate label{flex:1;text-align:center;font-size:.82rem;font-weight:600;border:1.5px solid var(--line);border-radius:8px;padding:7px 4px;cursor:pointer;user-select:none;background:#fff}
+.rate input:focus-visible+label{outline:3px solid #9cc3ec}
+.rate input[value="1"]:checked+label{background:var(--ok);border-color:var(--ok);color:#fff}
+.rate input[value="0.5"]:checked+label{background:var(--mid);border-color:var(--mid);color:#222}
+.rate input[value="0"]:checked+label{background:var(--bad);border-color:var(--bad);color:#fff}
+.remark{grid-column:2 / -1;display:none}
+.item.open .remark{display:block}
+.mtoggle{background:none;border:none;color:var(--blue);font-size:.8rem;cursor:pointer;padding:0;margin-top:3px}
+
+/* Auswertung */
+table.res{width:100%;border-collapse:collapse;font-size:.92rem}
+table.res th,table.res td{border-bottom:1px solid var(--line);padding:8px 6px;text-align:center}
+table.res th{color:var(--muted);font-weight:600;font-size:.8rem}
+table.res td:first-child,table.res th:first-child{text-align:left}
+.ampel{margin-top:14px;padding:12px 14px;border-radius:10px;font-weight:600}
+.a-ok{background:#e8f5e9;color:#1b5e20} .a-mid{background:#fff8e1;color:#6d4c00} .a-bad{background:#ffebee;color:#b71c1c} .a-none{background:#eef1f5;color:var(--muted)}
+.gaps{margin-top:12px;font-size:.92rem}
+.gaps li{margin-bottom:3px}
+
+/* Maßnahmen */
+.mrow{display:grid;grid-template-columns:1fr 150px 130px 40px 34px;gap:8px;margin-bottom:8px;align-items:center}
+.mrow input[type=checkbox]{width:22px;height:22px}
+.btn{font:inherit;font-weight:600;border-radius:9px;border:1.5px solid var(--blue);background:#fff;color:var(--blue);padding:8px 14px;cursor:pointer}
+.btn.primary{background:var(--blue);color:#fff}
+.btn.danger{border-color:var(--bad);color:var(--bad)}
+.btn.icon{padding:4px 8px}
+.actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.msg{font-size:.88rem;color:var(--muted)}
+footer{font-size:.8rem;color:var(--muted);text-align:center;padding:10px 0 30px}
+footer a{color:var(--blue)}
+.sign{display:none}
+
+@media (max-width:720px){
+  .hero h1{font-size:1.35rem}
+  .item{grid-template-columns:38px 1fr;gap:6px 10px}
+  .item .stufe{grid-column:2;justify-self:start}
+  .item .rate{grid-column:1 / -1}
+  .item .remark{grid-column:1 / -1}
+  .rate label{padding:10px 4px;font-size:.9rem}
+  .mrow{grid-template-columns:1fr 1fr;}
+  .mrow .mtxt{grid-column:1 / -1}
+}
+@media print{
+  body{background:#fff;font-size:10pt}
+  .wrap{max-width:none;padding:0}
+  .sticky,.actions,.mtoggle,.noprint,.btn{display:none!important}
+  .card{border:none;padding:6px 0;margin:0 0 8px;break-inside:auto}
+  header.hero{border-radius:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .item{break-inside:avoid;grid-template-columns:34px 1fr 80px 190px}
+  .item .remark{display:block}
+  .item .remark textarea:placeholder-shown{display:none}
+  .rate label,.badge,.ampel,.sec h2 .letter{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  details.legal ul{display:block}
+  .sign{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
+  .sign div{border-top:1px solid #000;padding-top:4px;font-size:9pt;margin-top:40px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <h1>Qualitätscheck Schulsozialarbeit</h1>
+  <p>Rahmenbedingungen der sozialen Arbeit in schulischer Verantwortung in Niedersachsen</p>
+  <span class="tag">60 Kriterien · Auswertung · Maßnahmenplan</span>
+</header>
+
+<section class="card">
+  <h2>Angaben zur Schule</h2>
+  <div class="grid">
+    <div><label class="f" for="k_schule">Schule</label><input type="text" id="k_schule" data-save></div>
+    <div><label class="f" for="k_form">Schulform</label><input type="text" id="k_form" data-save></div>
+    <div><label class="f" for="k_fk">Sozialpädagogische Fachkraft</label><input type="text" id="k_fk" data-save></div>
+    <div><label class="f" for="k_umfang">Stellenumfang / Einsatzschulen</label><input type="text" id="k_umfang" data-save></div>
+    <div><label class="f" for="k_datum">Datum der Erhebung</label><input type="date" id="k_datum" data-save></div>
+    <div><label class="f" for="k_bet">Beteiligte</label><input type="text" id="k_bet" data-save placeholder="z. B. SL, Fachkraft"></div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Zweck und Anwendung</h2>
+  <p>Die Checkliste unterstützt Schulleitung und sozialpädagogische Fachkraft dabei, die Rahmenbedingungen der Schulsozialarbeit gemeinsam zu prüfen, Lücken sichtbar zu machen und Zuständigkeiten für Verbesserungen zu klären. Sie eignet sich für das jährliche Abstimmungsgespräch, für die Einarbeitung neuer Fachkräfte und als Grundlage für Gespräche mit dem Schulträger.</p>
+  <p><b>So geht’s:</b> Jedes Kriterium mit <b>ja</b>, <b>teilweise</b> oder <b>nein</b> bewerten. Über „Bemerkung“ lassen sich Handlungsbedarf und Zuständigkeit notieren (SL = Schulleitung, ST = Schulträger, RLSB = Regionales Landesamt für Schule und Bildung, FK = Fachkraft). Die Auswertung entsteht automatisch.</p>
+  <div class="legend">
+    <span class="badge b1">Basis: zwingend notwendig</span>
+    <span class="badge b2">Erweitert: sollte vorhanden sein</span>
+    <span class="badge b3">Exzellenz: optimale Bedingungen</span>
+  </div>
+  <p class="note noprint">Datenschutz: Alle Eingaben bleiben auf diesem Gerät im Browser. Es werden keine Daten übertragen oder gespeichert, außer lokal zur Zwischenspeicherung.</p>
+</section>
+
+<section class="card">
+  <details class="legal">
+    <summary>Rechtlicher Rahmen in Niedersachsen</summary>
+    <ul>
+      <li>RdErl. d. MK „Soziale Arbeit in schulischer Verantwortung“ v. 1.8.2017 (SVBl. S. 429), geändert durch RdErl. v. 1.11.2022, VORIS 22410</li>
+      <li>Gem. RdErl. „Gewaltprävention und -intervention zur Sicherheit in Schulen in Zusammenarbeit mit Kinder- und Jugendhilfe, Polizei und Staatsanwaltschaft“, in Kraft seit August 2026: verpflichtet jede Schule zu einem Gewaltpräventionskonzept mit Schutzkonzept gegen sexualisierte Gewalt</li>
+      <li>NSchG: § 2 Bildungsauftrag, § 31 Datenverarbeitung, § 32 Abs. 2 Schulprogramm, § 43 Schulleitung, § 113 Sachkosten des Schulträgers</li>
+      <li>§ 4 KKG Beratung und Übermittlung von Informationen bei Kindeswohlgefährdung, § 203 StGB Schweigepflicht, § 34 StGB rechtfertigender Notstand</li>
+      <li>DSGVO und Niedersächsisches Datenschutzgesetz (NDSG)</li>
+      <li>Orientierungsrahmen „Kooperation soziale Arbeit in schulischer Verantwortung und Kinder- und Jugendhilfe“</li>
+      <li>RLSB-Handreichung für sozialpädagogische Fachkräfte im Landesdienst (Stand 12/2020)</li>
+    </ul>
+    <p class="note">Hinweis: Die auf schure.de veröffentlichte Fassung des Erlasses „Soziale Arbeit in schulischer Verantwortung“ nennt ein Außerkrafttreten mit Ablauf des 31.12.2024. Den aktuell gültigen Stand bitte über VORIS oder das RLSB prüfen.</p>
+  </details>
+</section>
+
+<div class="sticky noprint">
+  <div class="progress">
+    <span><b id="p_done">0</b> von 60 bewertet</span>
+    <div class="bar"><span id="p_bar"></span></div>
+    <span>Basis: <b id="p_basis">–</b></span>
+  </div>
+</div>
+
+<div id="sections"></div>
+
+<section class="card" id="auswertung">
+  <h2>Auswertung</h2>
+  <table class="res">
+    <thead><tr><th>Stufe</th><th>Kriterien</th><th>ja</th><th>teilw.</th><th>nein</th><th>offen</th><th>Erfüllung</th></tr></thead>
+    <tbody id="res_body"></tbody>
+  </table>
+  <p style="font-size:.8rem;color:var(--muted);margin:6px 0 0">Berechnung: ja = 1 Punkt, teilweise = 0,5 Punkte. Erfüllungsgrad = Punkte geteilt durch bewertete Kriterien.</p>
+  <div id="ampel" class="ampel a-none">Noch keine Bewertung der Basiskriterien.</div>
+  <div id="gaps" class="gaps"></div>
+</section>
+
+<section class="card">
+  <h2>Maßnahmenplan</h2>
+  <div id="mlist"></div>
+  <div class="actions noprint"><button class="btn" id="m_add" type="button">+ Maßnahme hinzufügen</button></div>
+  <div class="sign"><div>Ort, Datum, Unterschrift Schulleitung</div><div>Ort, Datum, Unterschrift sozialpädagogische Fachkraft</div></div>
+</section>
+
+<section class="card noprint">
+  <div class="actions">
+    <button class="btn primary" type="button" id="b_print">Drucken / als PDF speichern</button>
+    <button class="btn" type="button" id="b_gaps">Lücken als Maßnahmen übernehmen</button>
+    <button class="btn danger" type="button" id="b_reset">Alles zurücksetzen</button>
+    <span class="msg" id="msg" role="status"></span>
+  </div>
+</section>
+
+<footer>
+  Private Arbeitshilfe, kein amtliches Dokument des Landes Niedersachsen oder des RLSB. Stand: November 2026.<br>
+  © Dr. Edmund Bruns · Lizenz <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.de" rel="license">CC BY-NC 4.0</a>
+</footer>
+</div>
+
+<script>
+const S = [
+["A","Auftrag, Steuerung und Verankerung",[
+ ["Verankerung im Schulprogramm","Ziele und Schwerpunkte der Schulsozialarbeit sind im Schulprogramm beschrieben (§ 32 Abs. 2 NSchG, Nr. 4.1 Erlass).",1],
+ ["Aufgaben- und Zielvereinbarung","Schriftliche Vereinbarung mit der Schulleitung zu Schwerpunkten, Zielgruppen und Prioritäten, jährlich fortgeschrieben.",1],
+ ["Feste Abstimmung mit der Schulleitung","Regelmäßige Gesprächstermine in verbindlichem Turnus.",1],
+ ["Arbeitszeit geklärt","Arbeitszeitnachweis, Anteile für Vor- und Nachbereitung, Dokumentation und Netzwerkarbeit sowie Ferienregelung nach TV-L sind transparent vereinbart.",1],
+ ["Einsatz an mehreren Schulen","Stammschule, Präsenzzeiten je Schule und Anrechnung der Fahrzeiten sind geregelt (falls zutreffend).",1],
+ ["Dienstreisen","Generelle Genehmigung für regelmäßige Termine, z. B. Jugendamt, Beratungsstellen, Elterngespräche.",2],
+ ["Jahresplanung und Jahresbericht","Planung der Angebote und anonymisierte Jahresstatistik werden der Schulleitung und den Gremien vorgestellt.",2],
+ ["Evaluation","Systematische Rückmeldung von Schülerinnen, Schülern und Lehrkräften fließt in die Schulentwicklung ein.",3]]],
+["B","Mitwirkung in der Schulgemeinschaft",[
+ ["Gesamtkonferenz und Dienstbesprechungen","Teilnahme als stimmberechtigtes Mitglied der Gesamtkonferenz (Nr. 6 Erlass), Einladung zu Dienstbesprechungen.",1],
+ ["Mitwirkung in Teams","Beratungsteam, Krisenteam, bei Bedarf Klassenkonferenzen und Ganztagsgremien.",1],
+ ["Informationsfluss","Aufnahme in Verteiler, Terminplanung und Vertretungsinformationen.",1],
+ ["Beratung von Lehrkräften","Feste Zeitfenster für Fallberatung mit Lehrkräften und Klassenteams.",2],
+ ["Schulentwicklung","Mitarbeit in Steuergruppe oder Arbeitsgruppen zur Schulentwicklung.",3]]],
+["C","Räumliche Ausstattung",[
+ ["Eigenes, abschließbares Büro","Mit vollständigem Arbeitsplatz.",1],
+ ["Beratungsraum","Ungestört, nicht einsehbar und schallgeschützt. Das Büro kann genügen, wenn es diese Bedingungen erfüllt.",1],
+ ["Abschließbarer Aktenschrank","Für vertrauliche Unterlagen.",1],
+ ["Gruppenraum","Verbindlich buchbarer Raum für Gruppenangebote, Sozialtrainings und Pausenangebote. Gemeinsame Nutzung ist möglich.",1],
+ ["Lage","Gut erreichbar und zugleich diskret, also nicht direkt neben Sekretariat oder Lehrerzimmer.",2],
+ ["Gestaltung","Freundliche, altersgerechte Einrichtung mit Sitzecke und Materialien.",2],
+ ["Familiengespräche","Ausreichend Platz für Gespräche mit mehreren Familienmitgliedern oder Helferrunden.",2],
+ ["Barrierefreiheit","Barrierefreier Zugang zu Büro und Beratungsraum, angepasstes Mobiliar.",2],
+ ["Eigener Gruppen- und Rückzugsraum","Exklusiv nutzbar für Entspannung, Deeskalation und offene Angebote.",3]]],
+["D","Technische Ausstattung, Datenschutz und Dokumentation",[
+ ["Dienstliches Endgerät","Eigener PC oder Laptop mit sicherem Internetzugang. Keine Nutzung privater Geräte für Falldaten.",1],
+ ["Telefon","Eigene Durchwahl mit Anrufbeantworter, vertraulich nutzbar.",1],
+ ["Schulische Zugänge","Dienstliche E-Mail-Adresse und Zugang zur Schulplattform, z. B. IServ.",1],
+ ["Drucken und Scannen","Vertrauliche Ausdrucke ohne Umweg über allgemein zugängliche Geräte möglich.",1],
+ ["Datenschutzkonforme Dokumentation","Grundlage § 31 NSchG, DSGVO und NDSG. Zugriffsschutz bzw. Verschlüsselung und Löschfristen sind festgelegt.",1],
+ ["Vorlagen","Stammdatenblatt, Gesprächsnotiz, Schweigepflichtentbindung und anonymisierte Statistik liegen vor.",1],
+ ["Datenschutzbeauftragte","Abstimmung erfolgt, die Verarbeitung ist im Verzeichnis von Verarbeitungstätigkeiten erfasst.",2],
+ ["Dienstliches Mobiltelefon","Für Erreichbarkeit außerhalb des Büros und datenschutzkonforme Kommunikation.",2],
+ ["Präsentationstechnik","Zugang zu Beamer oder Display für Gruppenangebote und Elternabende.",2],
+ ["Digitaler Beratungszugang","Geschützter, niedrigschwelliger Kontaktweg, z. B. IServ-Messenger oder digitale Terminbuchung.",3]]],
+["E","Sichtbarkeit und Erreichbarkeit",[
+ ["Öffentliche Darstellung","Vorstellung auf der Homepage und Aushang mit Foto, Sprechzeiten und Kontaktwegen.",1],
+ ["Persönliche Vorstellung","In Klassen, bei Elternabenden und im Kollegium zu Schuljahresbeginn.",1],
+ ["Niedrigschwellige Kontaktwege","Offene Sprechzeit, Briefkasten oder Terminzettel.",1],
+ ["Elterninformation","Flyer, bei Bedarf mehrsprachig oder in Leichter Sprache.",2],
+ ["Präsenz im Schulalltag","Sichtbar in Pausen und im Ganztag.",2]]],
+["F","Vertraulichkeit, Kinderschutz und Krisenintervention",[
+ ["Schweigepflicht gesichert","Die Schweigepflicht nach § 203 StGB ist Schulleitung und Kollegium bekannt. Die Schulleitung erhält nur anonymisierte Angaben, sofern keine Einwilligung oder gesetzliche Pflicht vorliegt.",1],
+ ["Verfahren bei Kindeswohlgefährdung","Schriftlich geregeltes Vorgehen nach § 4 KKG, einschließlich Beratung durch eine insoweit erfahrene Fachkraft und Kontaktweg zum Jugendamt.",1],
+ ["Krisenteam und Notfallplan","Krisenteam ist benannt, Ablaufpläne liegen vor, die Rolle der Schulsozialarbeit ist geklärt.",1],
+ ["Vertretungsregelung","Bei Abwesenheit ist bekannt, wer Ansprechperson ist. Schülerinnen und Schüler werden informiert.",1],
+ ["Schutzkonzept","Gewaltpräventionskonzept mit Schutzkonzept gegen sexualisierte Gewalt liegt vor, wie es der Gewaltpräventionserlass seit August 2026 verlangt. Die Schulsozialarbeit war beteiligt.",1],
+ ["Aufsicht","Aufsichtsfragen bei Gruppenangeboten und außerschulischen Aktivitäten sind geklärt.",2],
+ ["Qualifizierung Kinderschutz","Regelmäßige Fortbildung zu Kinderschutz und Gefährdungseinschätzung.",2]]],
+["G","Kooperation und Vernetzung",[
+ ["Aktuelle Kontaktübersicht","Jugendamt bzw. ASD, Erziehungsberatung, Kinder- und Jugendpsychiatrie, schulpsychologische Beratung des RLSB, Präventionsteam der Polizei, Beratungsstellen.",1],
+ ["Schulinterne Zusammenarbeit","Rollen gegenüber Beratungslehrkräften, Förderschullehrkräften und Ganztagspersonal sind abgestimmt.",1],
+ ["Kooperation mit der Jugendhilfe","Abgestimmt nach dem Orientierungsrahmen, feste Ansprechperson im Jugendamt.",2],
+ ["Regionale Netzwerke","Teilnahme an Arbeitskreisen Schulsozialarbeit, Präventionsräten oder kommunalen Netzwerken.",2],
+ ["Überregionale Gremienarbeit","Freigestellte Zeitanteile für Fachtage, Fachgruppen und Landesarbeitsgemeinschaften.",3]]],
+["H","Fachliche Begleitung und Qualifizierung",[
+ ["Fachberatung durch das RLSB","Teilnahme an den verpflichtenden Dienstbesprechungen und Zugang zur Fachberatung sind gewährleistet.",1],
+ ["Fortbildung","Teilnahme in der Arbeitszeit, Berücksichtigung im schulischen Fortbildungskonzept und Finanzierung aus dem Schulbudget.",1],
+ ["Kollegiale Fallberatung","Regelmäßige Intervision, z. B. in regionalen Gruppen.",2],
+ ["Externe Supervision","Regelmäßig und mit geklärter Kostenübernahme. Im Erlass nicht ausdrücklich geregelt, daher mit SL und RLSB klären.",2],
+ ["Einarbeitung","Konzept für neue Fachkräfte sowie für Praktikantinnen und Praktikanten im Anerkennungsjahr.",2]]],
+["I","Sachmittel und Budget",[
+ ["Büro- und Verbrauchsmaterial","Jederzeit ohne Hürden zugänglich.",1],
+ ["Eigenes Jahresbudget","Feste Mittel für Präventions- und Gruppenangebote. Sachkosten trägt der Schulträger (§ 113 NSchG), die SL berücksichtigt die Schulsozialarbeit bei der Budgetverwendung.",2],
+ ["Methodenmaterial","Moderationskoffer, Fachliteratur, Spiele und Materialien zum sozialen Lernen.",2],
+ ["Projektmittel","Mittel für externe Referierende, Präventionsprojekte und Projekttage.",2],
+ ["Bildung und Teilhabe","Antragswege für BuT-Leistungen sind bekannt und für Familien zugänglich.",2],
+ ["Unterstützungsfonds","Unbürokratische Einzelfallhilfen für Kinder in schwierigen Lebenslagen, z. B. über den Förderverein.",3]]]
+];
+const STUFE = {1:["Basis","b1"],2:["Erweitert","b2"],3:["Exzellenz","b3"]};
+const KEY = "qc-ssa-nds-v1";
+const ITEMS = [];
+
+/* ---------- Speicher (nur lokal) ---------- */
+let state = {r:{}, m:{}, k:{}, plan:[]};
+try { const s = localStorage.getItem(KEY); if (s) state = Object.assign(state, JSON.parse(s)); } catch(e) {}
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e) {} }
+function msg(t){ const m = document.getElementById("msg"); m.textContent = t; clearTimeout(msg.h); msg.h = setTimeout(() => m.textContent = "", 4000); }
+
+/* ---------- Aufbau ---------- */
+const wrap = document.getElementById("sections");
+S.forEach(([L, title, rows]) => {
+  const sec = document.createElement("section");
+  sec.className = "card sec";
+  sec.innerHTML = `<h2><span class="letter">${L}</span>${title}<span class="cnt" id="cnt_${L}"></span></h2>`;
+  rows.forEach(([k, txt, s], i) => {
+    const id = L + (i + 1);
+    ITEMS.push({id, k, s, L});
+    const d = document.createElement("div");
+    d.className = "item"; d.id = "it_" + id;
+    d.innerHTML = `
+      <div class="nr">${id}</div>
+      <div class="txt"><b>${k}:</b> <span class="hint">${txt}</span><br>
+        <button type="button" class="mtoggle" aria-expanded="false">Bemerkung</button></div>
+      <div class="stufe"><span class="badge ${STUFE[s][1]}">${STUFE[s][0]}</span></div>
+      <div class="rate" role="radiogroup" aria-label="Bewertung ${id}">
+        ${[["1","ja"],["0.5","teilw."],["0","nein"]].map(([v, l]) =>
+          `<input type="radio" name="r_${id}" id="r_${id}_${v}" value="${v}"><label for="r_${id}_${v}">${l}</label>`).join("")}
+      </div>
+      <div class="remark"><textarea rows="1" id="m_${id}" placeholder="Handlungsbedarf, Zuständigkeit (SL, ST, RLSB, FK)"></textarea></div>`;
+    sec.appendChild(d);
+  });
+  wrap.appendChild(sec);
+});
+
+/* Zustand wiederherstellen und Ereignisse */
+ITEMS.forEach(({id}) => {
+  const v = state.r[id];
+  if (v !== undefined) { const el = document.getElementById(`r_${id}_${v}`); if (el) el.checked = true; }
+  const ta = document.getElementById("m_" + id);
+  if (state.m[id]) { ta.value = state.m[id]; document.getElementById("it_" + id).classList.add("open"); }
+  ta.addEventListener("input", () => { state.m[id] = ta.value; save(); });
+  document.querySelectorAll(`input[name="r_${id}"]`).forEach(inp =>
+    inp.addEventListener("change", () => { state.r[id] = inp.value; save(); update(); }));
+});
+document.querySelectorAll(".mtoggle").forEach(b => b.addEventListener("click", () => {
+  const it = b.closest(".item"); it.classList.toggle("open");
+  b.setAttribute("aria-expanded", it.classList.contains("open"));
+  if (it.classList.contains("open")) it.querySelector("textarea").focus();
+}));
+document.querySelectorAll("[data-save]").forEach(el => {
+  if (state.k[el.id]) el.value = state.k[el.id];
+  el.addEventListener("input", () => { state.k[el.id] = el.value; save(); });
+});
+
+/* ---------- Auswertung ---------- */
+const pct = (p, n) => n ? Math.round(p / n * 100) + " %" : "–";
+function update(){
+  const agg = {1:{n:0,ja:0,t:0,nein:0,p:0}, 2:{n:0,ja:0,t:0,nein:0,p:0}, 3:{n:0,ja:0,t:0,nein:0,p:0}};
+  let done = 0; const gaps = [];
+  ITEMS.forEach(({id, k, s}) => {
+    const a = agg[s]; a.n++;
+    const v = state.r[id];
+    if (v === undefined) return;
+    done++;
+    if (v === "1") { a.ja++; a.p += 1; }
+    else if (v === "0.5") { a.t++; a.p += .5; if (s === 1) gaps.push([id, k, "teilweise"]); }
+    else { a.nein++; if (s === 1) gaps.push([id, k, "nein"]); }
+  });
+  const tot = {n:0,ja:0,t:0,nein:0,p:0};
+  let rows = "";
+  [1,2,3].forEach(s => {
+    const a = agg[s]; Object.keys(tot).forEach(x => tot[x] += a[x]);
+    const rated = a.ja + a.t + a.nein;
+    rows += `<tr><td><span class="badge ${STUFE[s][1]}">${s} ${STUFE[s][0]}</span></td><td>${a.n}</td><td>${a.ja}</td><td>${a.t}</td><td>${a.nein}</td><td>${a.n - rated}</td><td><b>${pct(a.p, rated)}</b></td></tr>`;
+  });
+  const tr = tot.ja + tot.t + tot.nein;
+  rows += `<tr><td><b>Gesamt</b></td><td>${tot.n}</td><td>${tot.ja}</td><td>${tot.t}</td><td>${tot.nein}</td><td>${tot.n - tr}</td><td><b>${pct(tot.p, tr)}</b></td></tr>`;
+  document.getElementById("res_body").innerHTML = rows;
+
+  document.getElementById("p_done").textContent = done;
+  document.getElementById("p_bar").style.width = (done / ITEMS.length * 100) + "%";
+  const b = agg[1], br = b.ja + b.t + b.nein;
+  document.getElementById("p_basis").textContent = pct(b.p, br);
+
+  const am = document.getElementById("ampel");
+  if (!br) { am.className = "ampel a-none"; am.textContent = "Noch keine Bewertung der Basiskriterien."; }
+  else {
+    const q = b.p / br * 100;
+    const hint = br < b.n ? ` (${b.n - br} Basiskriterien noch offen)` : "";
+    if (q >= 100) { am.className = "ampel a-ok"; am.textContent = "Arbeitsfähigkeit gesichert. Weiterentwicklung über die Stufen Erweitert und Exzellenz planen." + hint; }
+    else if (q >= 80) { am.className = "ampel a-mid"; am.textContent = "Grundsätzlich arbeitsfähig. Offene Basispunkte zeitnah mit Schulleitung und Schulträger klären." + hint; }
+    else { am.className = "ampel a-bad"; am.textContent = "Fachgerechte und vertrauliche Arbeit ist eingeschränkt. Vorrangiger Handlungsbedarf, ggf. Fachberatung des RLSB einbeziehen." + hint; }
+  }
+  document.querySelectorAll(".sec").forEach((sec, i) => {
+    const L = S[i][0], its = ITEMS.filter(x => x.L === L);
+    document.getElementById("cnt_" + L).textContent = `${its.filter(x => state.r[x.id] !== undefined).length}/${its.length}`;
+  });
+  document.getElementById("gaps").innerHTML = gaps.length
+    ? "<b>Offene Basiskriterien:</b><ul>" + gaps.map(([id, k, w]) => `<li>${id} ${k} (${w})</li>`).join("") + "</ul>" : "";
+  window._gaps = gaps;
+}
+
+/* ---------- Maßnahmenplan ---------- */
+const ml = document.getElementById("mlist");
+function esc(s){ return String(s || "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+function renderPlan(){
+  if (!state.plan.length) state.plan.push({t:"",z:"",d:"",x:false});
+  ml.innerHTML = "";
+  state.plan.forEach((m, i) => {
+    const r = document.createElement("div"); r.className = "mrow";
+    r.innerHTML = `<input class="mtxt" type="text" placeholder="Handlungsbedarf / Maßnahme" value="${esc(m.t)}" aria-label="Maßnahme">
+      <input type="text" placeholder="Zuständig" value="${esc(m.z)}" aria-label="Zuständig">
+      <input type="text" placeholder="bis wann" value="${esc(m.d)}" aria-label="bis wann">
+      <input type="checkbox" ${m.x ? "checked" : ""} aria-label="erledigt" title="erledigt">
+      <button type="button" class="btn icon noprint" aria-label="Zeile löschen">✕</button>`;
+    const [t, z, d, x, del] = r.children;
+    t.oninput = () => { m.t = t.value; save(); };
+    z.oninput = () => { m.z = z.value; save(); };
+    d.oninput = () => { m.d = d.value; save(); };
+    x.onchange = () => { m.x = x.checked; save(); };
+    del.onclick = () => { state.plan.splice(i, 1); save(); renderPlan(); };
+    ml.appendChild(r);
+  });
+}
+document.getElementById("m_add").onclick = () => { state.plan.push({t:"",z:"",d:"",x:false}); save(); renderPlan(); };
+document.getElementById("b_gaps").onclick = () => {
+  const g = window._gaps || [];
+  if (!g.length) { msg("Keine offenen Basiskriterien vorhanden."); return; }
+  state.plan = state.plan.filter(m => m.t || m.z || m.d);
+  g.forEach(([id, k]) => {
+    if (!state.plan.some(m => m.t.startsWith(id + " "))) state.plan.push({t:`${id} ${k}`, z:"", d:"", x:false});
+  });
+  save(); renderPlan();
+  document.getElementById("mlist").scrollIntoView({behavior:"smooth", block:"center"});
+};
+document.getElementById("b_print").onclick = () => { try { window.print(); } catch(e) {} };
+const rb = document.getElementById("b_reset");
+rb.onclick = () => {
+  if (!rb.dataset.c) { rb.dataset.c = "1"; rb.textContent = "Wirklich alles löschen?"; setTimeout(() => { delete rb.dataset.c; rb.textContent = "Alles zurücksetzen"; }, 4000); return; }
+  state = {r:{}, m:{}, k:{}, plan:[]};
+  try { localStorage.removeItem(KEY); } catch(e) {}
+  location.reload();
+};
+
+renderPlan(); update();
+</script>
+</body>
+</html>
